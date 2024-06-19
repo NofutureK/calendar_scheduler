@@ -1,5 +1,9 @@
 # calendar_scheduler
 
+title : calendar_scheduler
+
+제작자 : lee jun hee
+
 A new Flutter project.
 
 ## Getting Started
