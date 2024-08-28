@@ -13,7 +13,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen>{
-  late DateTime selectedDate;
+  DateTime selectedDate = DateTime.utc(
+    DateTime.now().year,
+    DateTime.now().month,
+    DateTime.now().day,
+  );
+
+
 
   @override
   void initState() {
@@ -31,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen>{
             context: context,
             isDismissible: true,
             builder: (_) => ScheduleBottomSheet(),
+            isScrollControlled: true,
           );
         },
         child: Icon(
@@ -46,7 +53,9 @@ class _HomeScreenState extends State<HomeScreen>{
               onDaySelected: _onDaySelected, // 메서드로 변경
             ),
             SizedBox(height: 8.0,),
-            TodayBanner(selectedDate: selectedDate, count: 0,),
+            TodayBanner(
+              selectedDate: selectedDate,
+              count: 0,),
             SizedBox(height: 8.0,),
             ScheduleCard(
               startTime: 12,

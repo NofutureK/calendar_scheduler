@@ -26,18 +26,17 @@ class CustomTextField extends StatelessWidget {
         ),
         SizedBox(height: 8.0), // Added spacing between label and text field
         TextFormField(
-          cursorColor: Colors.grey,
+          cursorColor: Colors.grey, // Fixed color reference
           maxLines: isTime ? 1 : null,
+          expands: !isTime,
           keyboardType: isTime ? TextInputType.number : TextInputType.multiline,
           inputFormatters: isTime
-              ? [
-            FilteringTextInputFormatter.digitsOnly,
-          ]
+              ? [FilteringTextInputFormatter.digitsOnly]
               : [],
           decoration: InputDecoration(
             border: InputBorder.none,
             filled: true,
-            fillColor: Colors.grey[300],
+            fillColor: Colors.grey[300], // Fixed color reference
             suffixText: isTime ? '시' : null,
           ),
         ),
